@@ -9,7 +9,7 @@ function Doctorr() {
 
   const handleAddDoctor = (newDoctor) => {
     // Send a POST request to your JSON server to add a new doctor
-    axios.post('https://13.235.76.50:5000/doctors', newDoctor)
+    axios.post('http://13.235.76.50:5000/doctors', newDoctor)
       .then((response) => {
         // Update the React state with the newly created doctor
         setDoctors([...doctors, response.data]);
@@ -24,7 +24,7 @@ function Doctorr() {
   };
   
   useEffect(() => {
-    axios.get('https://13.235.76.50:5000/Doctorr')
+    axios.get('http://13.235.76.50:5000/Doctorr')
       .then((response) => {
         setDoctors(response.data);
       })
@@ -35,7 +35,7 @@ function Doctorr() {
 
   const handleDeleteDoctor = (doctorId) => {
     // Send a DELETE request to your JSON server to delete the doctor data
-    axios.delete(`https://13.235.76.50:5000/doctors/${doctorId}`)
+    axios.delete(`http://13.235.76.50:5000/doctors/${doctorId}`)
       .then(() => {
         // Remove the deleted doctor from the React state
         const updatedDoctors = doctors.filter((doctor) => doctor.id !== doctorId);
